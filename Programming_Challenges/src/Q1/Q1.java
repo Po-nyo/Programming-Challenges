@@ -4,6 +4,13 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * 
+ * @author Ponyo
+ * Programming Challenge Q1. 3n+1 문제
+ *
+ */
+
 public class Q1 {
 
 	public static void main(String[] args) {
