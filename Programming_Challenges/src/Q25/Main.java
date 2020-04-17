@@ -26,7 +26,8 @@ public class Main {
 			
 			System.out.println(ms.distanceSum(addresses));
 		}
-
+		
+		sc.close();
 	}
 
 }
