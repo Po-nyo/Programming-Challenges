@@ -12,19 +12,19 @@ public class LongestSequenceService {
 	}
 	
 	public void call() {
-		longestSequence(this.elephants);
+		longestSequence();
 	}
 	
-	private void longestSequence(ArrayList<Elephant> elephant) {
-		int[] dp = new int[elephant.size()];	// 수열길이 저장
-		int[] parent = new int[elephant.size()];	// parentIndex 저장
+	private void longestSequence() {
+		int[] dp = new int[elephants.size()];	// 수열길이 저장
+		int[] parent = new int[elephants.size()];	// parentIndex 저장
 		dp[0] = 1;	// 처음 길이는 1
 			
 		for(int i=0; i<dp.length; i++) {
 			int max = -1;
 			int maxIndex = -1;
 			for(int j=0; j<i; j++) {	// iq는 내림차순, weight는 오름차순이되도록
-				if(elephant.get(i).iq < elephant.get(j).iq && max<dp[j] && elephant.get(i).weight > elephant.get(j).weight) {
+				if(elephants.get(i).iq < elephants.get(j).iq && max<dp[j] && elephants.get(i).weight > elephants.get(j).weight) {
 					max = dp[j];	// 가장 긴 길이 저장
 					maxIndex = j;	// 가장 긴 길이를 가지는 인덱스 저장
 				}
@@ -49,15 +49,15 @@ public class LongestSequenceService {
 		}
 		// 출력
 		System.out.println(max);
-		printSubsequence(elephant, parent, maxIndex);
+		printSubsequence(parent, maxIndex);
 	}
 
-	private void printSubsequence(ArrayList<Elephant> elephant, int[] parent, int maxIndex) {
+	private void printSubsequence(int[] parent, int maxIndex) {
 		int index = maxIndex;
-		String sub = ""+elephant.get(index).n;
+		String sub = ""+elephants.get(index).n;
 			
 		while(parent[index] != index) {
-			sub = elephant.get(parent[index]).n + "\n" + sub;
+			sub = elephants.get(parent[index]).n + "\n" + sub;
 			index = parent[index];
 		}
 			
