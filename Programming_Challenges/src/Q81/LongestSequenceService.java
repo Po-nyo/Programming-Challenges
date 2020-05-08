@@ -4,10 +4,10 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class LongestSequenceService {
-	ArrayList<Elephant> elephants;
+	private ArrayList<Elephant> elephants;
 
 	public LongestSequenceService(ArrayList<Elephant> elephants) {
-		Collections.sort(elephants);	// ¸ö¹«°Ô ¿À¸§Â÷¼øÀ¸·Î Á¤·Ä
+		Collections.sort(elephants);	// ëª¸ë¬´ê²Œ ì˜¤ë¦„ì°¨ìˆœ ì •ë ¬
 		this.elephants = elephants;
 	}
 	
@@ -16,40 +16,34 @@ public class LongestSequenceService {
 	}
 	
 	private void longestSequence() {
-		int[] dp = new int[elephants.size()];	// ¼ö¿­±æÀÌ ÀúÀå
-		int[] parent = new int[elephants.size()];	// parentIndex ÀúÀå
-		dp[0] = 1;	// Ã³À½ ±æÀÌ´Â 1
+		int[] dp = new int[elephants.size()];		// ë¶€ë¶„ ìˆ˜ì—´ì˜ ê¸¸ì´ ì €ì¥
+		int[] parent = new int[elephants.size()];	// parentIndex ì €ì¥
+		dp[0] = 1;	// ì²˜ìŒ ê¸¸ì´ëŠ” 1
 			
+		int maxLength = 0;
+		int maxDpIndex = 0;
 		for(int i=0; i<dp.length; i++) {
-			int max = -1;
-			int maxIndex = -1;
-			for(int j=0; j<i; j++) {	// iq´Â ³»¸²Â÷¼ø, weight´Â ¿À¸§Â÷¼øÀÌµÇµµ·Ï
+			int max = 0;
+			int maxIndex = i;
+			for(int j=0; j<i; j++) {	// iqëŠ” ë‚´ë¦¼ì°¨ìˆœ, weightëŠ” ì˜¤ë¦„ì°¨ìˆœì´ ë˜ë„ë¡
 				if(elephants.get(i).iq < elephants.get(j).iq && max<dp[j] && elephants.get(i).weight > elephants.get(j).weight) {
-					max = dp[j];	// °¡Àå ±ä ±æÀÌ ÀúÀå
-					maxIndex = j;	// °¡Àå ±ä ±æÀÌ¸¦ °¡Áö´Â ÀÎµ¦½º ÀúÀå
+					max = dp[j];	// ê°€ì¥ ê¸´ ê¸¸ì´ë¥¼ ì €ì¥
+					maxIndex = j;	// ê°€ì¥ ê¸´ ê¸¸ì´ë¥¼ ê°€ì§€ëŠ” index ì €ì¥
 				}
 			}
-			if(max == -1) {	// max°¡ -1 ÀÌ¸é ÀÚ±â ÀÚ½Å È¥ÀÚ°¡ °¡Àå ±ä ¼ö¿­
-				dp[i] = 1;
-				parent[i] = i;
-			}
-			else {			// max+1À» ÇöÀç ¹øÈ£¿¡ ÀúÀå, ÇØ´ç ÀÎµ¦½º¸¦ parent·Î ÀúÀå
-				dp[i] = max+1;
-				parent[i] = maxIndex;
-			}
-		}
-		// °¡Àå ±ä ¼ö¿­ÀÇ ±æÀÌ
-		int max = dp[0]; 
-		int maxIndex = 0;
-		for(int i=1; i<dp.length; i++) {
-			if(max <= dp[i]) {
-				max = dp[i];
-				maxIndex = i;
+			
+			dp[i] = max+1;			// max+1ì„ í˜„ì¬ ë²ˆí˜¸ì— ì €ì¥
+			parent[i] = maxIndex;	// í•´ë‹¹ indexë¥¼ parentë¡œ ì €ì¥
+			
+			if(maxLength <= dp[i]) {
+				maxLength = dp[i];
+				maxDpIndex = i;
 			}
 		}
-		// Ãâ·Â
-		System.out.println(max);
-		printSubsequence(parent, maxIndex);
+		
+		// ì¶œë ¥
+		System.out.println(maxLength);
+		printSubsequence(parent, maxDpIndex);
 	}
 
 	private void printSubsequence(int[] parent, int maxIndex) {

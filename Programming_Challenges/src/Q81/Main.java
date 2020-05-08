@@ -1,7 +1,7 @@
 package Q81;
 /**
  * @author WOO
- * Programming Challenges Q81. Is Bigger Smarter? (Å« °ÍÀÌ ´õ ¶È¶ÈÇÏ´Ù?)
+ * Programming Challenges Q81. Is Bigger Smarter? (í° ê²ƒì´ ë” ë˜‘ë˜‘í•˜ë‹¤?)
  * 
  */
 
@@ -16,7 +16,7 @@ public class Main {
 		ArrayList<Elephant> elephants = new ArrayList<>();
 			
 		int count = 1;
-		while(sc.hasNextLine()) {	// elephant ¸®½ºÆ®¿¡ ÆÄÀÏ ³¡³¯ ¶§±îÁö ÄÚ³¢¸® Ãß°¡
+		while(sc.hasNextLine()) {	// elephantë“¤ì„ ë¦¬ìŠ¤íŠ¸ì— ì…ë ¥
 			Elephant e = new Elephant(sc.nextInt(), sc.nextInt(), count++);
 			elephants.add(e);
 		}

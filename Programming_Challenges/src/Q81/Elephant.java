@@ -1,7 +1,7 @@
 package Q81;
 
 public class Elephant implements Comparable<Elephant> {
-	int weight;	// ¸ö¹«°Ô
+	int weight;	// ëª¸ë¬´ê²Œ
 	int iq;		// iq
 	int n;
 
@@ -13,7 +13,7 @@ public class Elephant implements Comparable<Elephant> {
 
 	@Override
 	public int compareTo(Elephant o) {	
-		// ¸ö¹«°Ô ¿À¸§Â÷¼ø Á¤·Ä
+		// ëª¸ë¬´ê²Œ ì˜¤ë¦„ì°¨ìˆœ
 		return this.weight - o.weight;
 	}
 
