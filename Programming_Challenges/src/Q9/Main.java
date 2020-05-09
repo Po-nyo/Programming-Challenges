@@ -9,7 +9,7 @@ import java.util.Scanner;
  *
  */
 
-public class Q9 {
+public class Main {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -25,7 +25,7 @@ public class Q9 {
 			for(int i=0; i<n; i++) 
 				inputSequence[i] = sc.nextInt();
 			
-			solution.run(inputSequence);
+			solution.call(inputSequence);
 		}
 		
 		sc.close();

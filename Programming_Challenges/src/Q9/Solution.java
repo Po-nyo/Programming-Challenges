@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Solution {
 	
-	public void run(int[] inputSequence) {
+	public void call(int[] inputSequence) {
 		// 인접한 수의 차 저장
 		int[] differences = new int[inputSequence.length-1];
 		
@@ -17,7 +17,7 @@ public class Solution {
 			System.out.println("Not jolly");
 	}
 	
-	public boolean isJollyJumper(int[] differences) {
+	private boolean isJollyJumper(int[] differences) {
 		Arrays.sort(differences);
 		
 		for(int i=0; i<differences.length; i++) {
