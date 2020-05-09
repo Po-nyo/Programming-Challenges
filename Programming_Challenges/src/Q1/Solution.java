@@ -2,40 +2,10 @@ package Q1;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
-/**
- * 
- * @author Ponyo
- * Programming Challenge Q1. 3n+1 문제
- *
- */
-
-public class Q1 {
-
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		Scanner sc = new Scanner(System.in);
-        int first, last;	// 첫번째 숫자, 마지막 숫자
-        
-        Solution solution = new Solution();	// Solution 객체
-        
-        while(sc.hasNextLine()) {
-        	first = sc.nextInt();
-        	last = sc.nextInt();
-        	
-        	System.out.print(first+" "+last+" ");
-        	System.out.println(solution.getCycleLength(first, last));
-        }
-        sc.close();
-    }
-
-}
-
-class Solution {
+public class Solution {
 	
-	// 이미 계산한 cycle-length 저장
-	Map<Integer, Integer> cycle_length;	
+	Map<Integer, Integer> cycle_length;
 	
 	public Solution() {
 		cycle_length = new HashMap<>();
@@ -70,4 +40,5 @@ class Solution {
 		}
 		return max;
 	}
+
 }
