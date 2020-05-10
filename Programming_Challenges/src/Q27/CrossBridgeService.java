@@ -1,5 +1,6 @@
 package Q27;
 
+import java.util.Collections;
 import java.util.List;
 
 public class CrossBridgeService {
@@ -8,7 +9,7 @@ public class CrossBridgeService {
 	private String crossOrder;
 	private int crossTime;
 	
-	public void printSolution() {
+	public void solution() {
 		if(this.crossOrder.equals(""))
 			this.solve();
 		
@@ -42,11 +43,11 @@ public class CrossBridgeService {
 				speeds.remove(speeds.size()-1);
 				speeds.remove(speeds.size()-1);
 			}
-			crossTime += solution_1();
+			crossTime += smallSolution();
 		}
 	}
 	
-	private int solution_1() {
+	private int smallSolution() {
 		// 3명 이하인 경우의 solution
 		if(speeds.size() == 3) {
 			this.crossOrder += speeds.get(0)+" "+speeds.get(1)+"/"+
@@ -64,6 +65,7 @@ public class CrossBridgeService {
 	}
 	
 	public void setSpeeds(List<Integer> speeds) {
+		Collections.sort(speeds);
 		this.speeds = speeds;
 		this.crossOrder = "";
 		this.crossTime = 0;

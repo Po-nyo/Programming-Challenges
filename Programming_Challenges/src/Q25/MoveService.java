@@ -4,7 +4,11 @@ import java.util.Arrays;
 
 public class MoveService {
 	
-	public int distanceSum(int[] addresses) {
+	public void call(int[] addresses) {
+		System.out.println(distanceSum(addresses));
+	}
+	
+	private int distanceSum(int[] addresses) {
 		int newHomeLoc = specifyLocation(addresses);
 		
 		int d = 0;
@@ -14,7 +18,7 @@ public class MoveService {
 		return d;
 	}
 	
-	public int specifyLocation(int[] addresses) {
+	private int specifyLocation(int[] addresses) {
 		Arrays.sort(addresses);
 		
 		return addresses[addresses.length/2];

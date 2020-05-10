@@ -24,7 +24,7 @@ public class Main {
 			for(int j=0; j<addresses.length; j++)
 				addresses[j] = sc.nextInt();
 			
-			System.out.println(ms.distanceSum(addresses));
+			ms.call(addresses);
 		}
 		
 		sc.close();

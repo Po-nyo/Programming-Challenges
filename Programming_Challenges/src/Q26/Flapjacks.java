@@ -7,7 +7,7 @@ public class Flapjacks {
 	
 	private List<Integer> radius;
 
-	public void sort() {
+	public void solution() {
 		List<Integer> sub;
 		int size = this.radius.size();
 		
@@ -28,7 +28,7 @@ public class Flapjacks {
 		System.out.println("0");
 	}
 	
-	public void reverse(List<Integer> list, int from, int to) {
+	private void reverse(List<Integer> list, int from, int to) {
 		for(int i=0; i<=to/2; i++) {
 			int temp = list.get(i);
 			list.set(i, list.get(to-i));

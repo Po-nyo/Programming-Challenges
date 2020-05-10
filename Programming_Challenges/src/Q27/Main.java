@@ -1,7 +1,6 @@
 package Q27;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 /**
@@ -28,9 +27,8 @@ public class Main {
 			for(int j=0; j<n; j++)
 				speeds.add(sc.nextInt());
 			
-			Collections.sort(speeds);
 			cbs.setSpeeds(speeds);
-			cbs.printSolution();
+			cbs.solution();
 			
 			speeds.clear();
 		}

@@ -30,7 +30,7 @@ public class Main {
 			System.out.println();
 			
 			f.setRadius(radius);
-			f.sort();
+			f.solution();
 			
 			radius.clear();
 		}
