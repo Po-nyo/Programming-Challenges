@@ -9,7 +9,7 @@ public class PokerGame {
 		this.p2 = p2;
 	}
 	
-	public void run() {
+	public void call() {
 		p1.card.sortCards();
 		p2.card.sortCards();
 		
@@ -20,7 +20,7 @@ public class PokerGame {
 		System.out.println();
 	}
 	
-	public boolean isStraight(Player p) {
+	private boolean isStraight(Player p) {
 		int maxValue = p.card.getValue(0);
 			
 		for(int i=1; i<p.card.cards.length; i++) {
@@ -31,18 +31,18 @@ public class PokerGame {
 		return true;
 	}
 	
-	public boolean isAllSameMark(Player p) {
-		char mark = p.card.cards[0].charAt(1);
+	private boolean isAllSameMark(Player p) {
+		char mark = p.card.getMark(0);
 		
 		for(int i=0; i<p.card.cards.length; i++) {
-			if(mark != p.card.cards[i].charAt(1))
+			if(mark != p.card.getMark(i))
 				return false;
 		}
 		
 		return true;
 	}
 	
-	public void rank(Player p) {
+	private void rank(Player p) {
 		
 		/* Straight Flush */
 		if(isAllSameMark(p) && isStraight(p)) {
@@ -114,7 +114,7 @@ public class PokerGame {
 		/* High Card */	
 	}
 	
-	public void winner(Player p1, Player p2) {
+	private void winner(Player p1, Player p2) {
 		if(p1.rank != p2.rank)
 			printWinner(p1, p2);
 		else {
@@ -163,7 +163,7 @@ public class PokerGame {
 		}
 	}
 	
-	public void printWinner(Player p1, Player p2) {
+	private void printWinner(Player p1, Player p2) {
 		if(p1.rank > p2.rank)
 			System.out.println(p1.name + " wins.");
 		else if(p1.rank < p2.rank)
@@ -177,7 +177,5 @@ public class PokerGame {
 				System.out.println("Tie.");
 		}
 	}
-
-
 
 }

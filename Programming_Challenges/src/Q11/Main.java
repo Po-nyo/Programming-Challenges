@@ -20,6 +20,10 @@ public class Main {
 			int n = sc.nextInt();	// 정당의 개수
 			int[] h = new int[n];	// 각 정당의 동맹휴업 지수
 			
+			for(int j=0; j<n; j++)
+				h[j] = sc.nextInt();
+
+			
 			int count = 0;
 			
 			for(int j=1; j<=simulationDays; j++) {

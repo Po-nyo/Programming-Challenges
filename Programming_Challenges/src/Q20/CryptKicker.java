@@ -4,15 +4,13 @@ public class CryptKicker {
 	
 	private String[] codedStrings;
 	private char[] code;
-	private boolean decodeReady;
 	private char defaultValue = '0';
 	
 	public CryptKicker() {
 		code = new char['z'+1];
-		decodeReady = false;
 	}
 	
-	public void run() {
+	public void call() {
 		if(findCode())
 			decode();
 		else
@@ -37,12 +35,10 @@ public class CryptKicker {
 					this.code[currentChar] = original.charAt(j);
 				}
 				if(isValidCode()) {
-					this.decodeReady = true;
 					return true;
 				}
 			}
 		}
-		this.decodeReady = false;
 		return false;
 	}
 	
@@ -53,25 +49,21 @@ public class CryptKicker {
 		return true;
 	}
 	
-	public void decode() {
-		if(decodeReady) {
-			for(int i=0; i<this.codedStrings.length; i++) {
-				String current = codedStrings[i];
-				
-				String decoded = "";
-				for(int j=0; j<current.length(); j++) {
-					char currentChar = current.charAt(j);
-					
-					if(currentChar == ' ')
-						decoded += " ";
-					else
-						decoded += code[currentChar];
-				}
-				System.out.println(decoded);
+	private void decode() {
+		for(int i=0; i<this.codedStrings.length; i++) {
+			String current = codedStrings[i];
+
+			String decoded = "";
+			for(int j=0; j<current.length(); j++) {
+				char currentChar = current.charAt(j);
+
+				if(currentChar == ' ')
+					decoded += " ";
+				else
+					decoded += code[currentChar];
 			}
+			System.out.println(decoded);
 		}
-		else
-			System.out.println("Decoder is Not Ready");;
 	}
 	
 	private void codeInit() {
@@ -81,7 +73,6 @@ public class CryptKicker {
 
 	public void setCodedStrings(String[] codedStrings) {
 		this.codedStrings = codedStrings;
-		decodeReady = false;
 	}
 
 }

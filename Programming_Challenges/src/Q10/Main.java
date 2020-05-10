@@ -27,7 +27,7 @@ public class Main {
 			Player w = new Player("White", wCard);
 			
 			PokerGame poker = new PokerGame(b, w);
-			poker.run();	
+			poker.call();	
 		}
 
 		sc.close();

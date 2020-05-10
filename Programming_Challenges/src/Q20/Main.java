@@ -34,7 +34,7 @@ public class Main {
 			
 			sentences = sentence.split("/");
 			ck.setCodedStrings(sentences);
-			ck.run();
+			ck.call();
 		}
 		
 		sc.close();

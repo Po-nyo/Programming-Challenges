@@ -16,10 +16,10 @@ public class Main {
 		Scanner sc = new Scanner(System.in);
 		int testCaseNum = sc.nextInt();
 		String line;
-		sc.nextLine();
-		sc.nextLine();
 		
+		sc.nextLine();
 		for(int i=0; i<testCaseNum; i++) {
+			sc.nextLine();
 			int rows = sc.nextInt();	// grid 행의 길이
 			int cols = sc.nextInt();	// grid 열의 길이
 			sc.nextLine();
@@ -40,9 +40,7 @@ public class Main {
 			
 			for(int j=0; j<n; j++) {
 				line = sc.nextLine().toLowerCase();
-				
-				MyPoint p = ws.findLocation(line);
-				System.out.println((p.row+1)+" "+(p.col+1));
+				ws.call(line);
 			}
 			System.out.println();
 		}

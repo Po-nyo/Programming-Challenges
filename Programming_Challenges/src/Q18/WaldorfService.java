@@ -11,7 +11,12 @@ public class WaldorfService {
 		this.grid = grid;
 	}
 	
-	public MyPoint findLocation(String word) {
+	public void call(String line) {
+		MyPoint p = findLocation(line);
+		System.out.println((p.getRow()+1)+" "+(p.getCol()+1));
+	}
+	
+	private MyPoint findLocation(String word) {
 		// word와 일치하는 단어의 시작 포인트를 반환
 		MyPoint p = new MyPoint();
 		char firstChar = word.charAt(0);
@@ -30,7 +35,7 @@ public class WaldorfService {
 		return p;
 	}
 	
-	public boolean isMatch(String word, int row, int col) {
+	private boolean isMatch(String word, int row, int col) {
 		// 8 개의 방향으로 탐색
 		int[] rowDirection = { -1, -1, -1, 0, 0, 1, 1, 1 };
 		int[] colDirection = { -1, 0, 1, -1, 1, -1, 0, 1 };
@@ -48,8 +53,8 @@ public class WaldorfService {
 				MyPoint currentP = pointQ.poll();
 				
 				for(int i=0; i<rowDirection.length; i++) {
-					int movedRow = currentP.row + rowDirection[i];
-					int movedCol = currentP.col + colDirection[i];
+					int movedRow = currentP.getRow() + rowDirection[i];
+					int movedCol = currentP.getCol() + colDirection[i];
 					MyPoint movedP = new MyPoint(movedRow, movedCol);
 					
 					if(isPromising(word, movedP, nextChar))
@@ -62,11 +67,12 @@ public class WaldorfService {
 		return false;
 	}
 	
-	public boolean isPromising(String word, MyPoint p, char nextChar) {
-		return (p.row>=0 && p.row<grid.length && 
-				p.col>=0 && p.col<grid[0].length &&
-				this.grid[p.row][p.col] == nextChar);
+	private boolean isPromising(String word, MyPoint p, char nextChar) {
+		int row = p.getRow();
+		int col = p.getCol();
+		return (row>=0 && row<grid.length && 
+				col>=0 && col<grid[0].length &&
+				this.grid[row][col] == nextChar);
 	}
-	
 	
 }

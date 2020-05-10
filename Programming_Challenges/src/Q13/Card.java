@@ -8,11 +8,15 @@ public class Card {
 		cards = new String[52];
 		order = new int[52];
 		
-		cardInit();	
-		orderInit();	
+		inIt();
 	}
 	
-	public void cardInit() {
+	public void inIt() {
+		cardInit();
+		orderInit();
+	}
+	
+	private void cardInit() {
 		
 		String[] nums = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "Jack", "Queen", "King", "Ace" };
 		String[] marks = {"Clubs", "Diamonds", "Hearts", "Spades"};
@@ -35,7 +39,7 @@ public class Card {
 			this.cards[i] = nums[index++] + " of "+marks[3];
 	}
 	
-	public void orderInit() {
+	private void orderInit() {
 		for(int i=0; i<52; i++) {
 			this.order[i] = i;
 		}

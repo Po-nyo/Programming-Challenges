@@ -15,7 +15,6 @@ public class Main {
 		AutoJudge autoJudge = new AutoJudge();
 		
 		while(true) {
-			
 			int answerN = sc.nextInt();	// 정답 줄 갯수
 			if(answerN == 0)
 				break;
@@ -33,7 +32,7 @@ public class Main {
 			for(int i=0; i<submit.length; i++)
 				submit[i] = sc.nextLine();
 			
-			autoJudge.judge(answer, submit);
+			autoJudge.call(answer, submit);
 		}
 		
 		sc.close();

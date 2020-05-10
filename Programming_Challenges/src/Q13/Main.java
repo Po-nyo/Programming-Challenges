@@ -14,10 +14,11 @@ public class Main {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
+		Card card = new Card();
 		int testCaseNum = sc.nextInt();	// test case 개수
-		sc.nextLine();
-		sc.nextLine();
 		
+		sc.nextLine();
+		sc.nextLine();
 		for(int i=0; i<testCaseNum; i++) {
 			int n = sc.nextInt();	// 카드 섞기 패턴 개수
 			int[][] patterns = new int[n][52];
@@ -28,7 +29,6 @@ public class Main {
 			}
 			sc.nextLine();
 			
-			Card card = new Card();	
 			while(true) {
 				String line = sc.nextLine();
 				
@@ -46,9 +46,10 @@ public class Main {
 				}
 			}
 			
-			sc.close();
+			card.inIt();
 		}
 
+		sc.close();
 	}
 
 }
