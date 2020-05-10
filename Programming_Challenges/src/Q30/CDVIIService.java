@@ -10,7 +10,11 @@ public class CDVIIService {
 	private Map<String, List<Record>> records;
 	private int[] fare;
 	
-	public void calcFare() {
+	public void call() {
+		calcFare();
+	}
+	
+	private void calcFare() {
 		String[] keys = this.records.keySet().toArray(new String[0]);
 		Arrays.sort(keys);
 		

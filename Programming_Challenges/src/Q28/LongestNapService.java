@@ -7,7 +7,7 @@ public class LongestNapService {
 	private Appointment[] appointments;
 	private int day;
 	
-	public void findLongestNap() {
+	public void solution() {
 		Arrays.sort(appointments);
 		
 		int[] napTime = new int[appointments.length+1];

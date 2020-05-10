@@ -35,17 +35,13 @@ public class Fibonacci {
 		
 		while(true) {
 			int lastIndex = fiboList.size()-1;
+			BigInteger currentValue = fiboList.get(lastIndex).add(fiboList.get(lastIndex-1));
 			
-			if(fiboList.get(lastIndex).compareTo(maxValue) >= 0)
+			if(currentValue.compareTo(maxValue) > 0)
 				break;
 			else
-				fiboList.add(fiboList.get(lastIndex).add(fiboList.get(lastIndex-1)));
+				fiboList.add(currentValue);
 		}
-	}
-	
-	public void setMaxValue(BigInteger maxValue) {
-		this.maxValue = maxValue;
-		makeFiboList();
 	}
 
 }

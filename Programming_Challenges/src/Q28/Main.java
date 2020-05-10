@@ -23,12 +23,12 @@ public class Main {
 			
 			sc.nextLine();
 			for(int i=0; i<n; i++) {
-				String[] temp = sc.nextLine().split(" ");
-				appointments[i] = new Appointment(temp[0], temp[1]);
+				String appointment = sc.nextLine();
+				appointments[i] = new Appointment(appointment);
 			}
 			
 			lns.setAppointments(appointments, day++);
-			lns.findLongestNap();
+			lns.solution();
 		}
 		
 		sc.close();

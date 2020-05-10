@@ -1,6 +1,6 @@
 package Q30;
 
-public class Record implements Comparable<Record>{
+public class Record implements Comparable<Record> {
 	
 	private String dateTime;
 	private String detail;
