@@ -18,7 +18,7 @@ public class Freckles {
 	private double prim(int start) {
 		double total = 0;	// 거리의 총합
 		boolean[] connected = new boolean[points.length];	// 연결여부
-		connected[start] = true;	// 시작점 연결체크
+		connected[start] = true;	// 시작점 연결
 			
 		while(!isAllConnected(connected)) {	// 점들이 모두 연결될 때 까지
 			double min = MAX;	// 최소 거리 초기화
