@@ -17,7 +17,7 @@ public class PlayingWithWheels {
 		this.banList = banList;
 	}
 	
-	public void run() {
+	public void call() {
 		System.out.println(bfs());
 	}
 	

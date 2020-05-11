@@ -42,7 +42,7 @@ public class Main {
 			}
 			
 			PlayingWithWheels play = new PlayingWithWheels(initial_state, final_state, banList);
-			play.run();
+			play.call();
 		}
 		sc.close();
 

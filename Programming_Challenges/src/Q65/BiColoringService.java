@@ -7,9 +7,6 @@ public class BiColoringService {
 	private boolean cannotBiColoring;
 	private boolean[] visited;
 	
-	public BiColoringService() {
-	}
-	
 	public boolean biColoring() {
 		dfs(0, 0);
 		
