@@ -33,7 +33,7 @@ public class Main {
 			
 			bcs.setGraph(graph);
 			
-			if(bcs.BiColoring())
+			if(bcs.biColoring())
 				System.out.println("BICOLORABLE");
 			else
 				System.out.println("NOT BICOLORABLE");

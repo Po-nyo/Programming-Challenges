@@ -10,7 +10,7 @@ public class BiColoringService {
 	public BiColoringService() {
 	}
 	
-	public boolean BiColoring() {
+	public boolean biColoring() {
 		dfs(0, 0);
 		
 		return !cannotBiColoring;
